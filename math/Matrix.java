@@ -338,4 +338,8 @@ public class Matrix implements Serializable {
 		
 		return str;
 	}
+	
+	public double[] toFlatArray(){
+		return values;
+	}
 }

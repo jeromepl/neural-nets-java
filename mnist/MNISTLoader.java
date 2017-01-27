@@ -90,5 +90,14 @@ public class MNISTLoader {
 		input.close();
 		return labels;
 	}
-
+	
+	
+	public static double[][] getImagesArray(File file, int... divisions) throws IOException {
+		Matrix[][] matrices = getImages(file, divisions);
+		double[][] images = new double[matrices.length][];
+		for(int i=0; i<images.length; i++){
+			images[i] = matrices[i][0].toFlatArray();
+		}
+		return images;
+	}
 }
