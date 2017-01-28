@@ -2,6 +2,7 @@ package network;
 
 import java.util.Random;
 
+import math.ActivationFunction;
 import math.Matrix;
 import utils.Utils;
 
@@ -169,7 +170,7 @@ public class Network {
 		
 		// Move backwards to calculate the errors
 		// Error in the final layer (Output error):
-		Matrix error = config.costFunction.derivative(zs[zs.length - 1], activations[activations.length - 1], trainingResult); // Equation BP1, continued on following line
+		Matrix error = config.costFunction.derivative(activations[activations.length - 1], trainingResult, zs[zs.length - 1], config.activationFunction); // Equation BP1, continued on following line
 		deltaGradientBiases[deltaGradientBiases.length - 1] = error;
 		deltaGradientWeights[deltaGradientWeights.length - 1] = error.multiplyTransposeM(activations[activations.length - 2]);
 		

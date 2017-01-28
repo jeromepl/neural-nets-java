@@ -263,6 +263,30 @@ public class Matrix implements Serializable {
 		}
 	}
 	
+/*** HADAMARD DIVISION ***/
+	
+	public Matrix hadamardDivision(Matrix m) {
+		Matrix newMatrix = new Matrix(nbRows, nbColumns);
+		hadamardDivision(this, m, newMatrix);
+		
+		return newMatrix;
+	}
+	
+	public void hadamardDivisionSelf(Matrix m) {
+		hadamardDivision(this, m, this);
+	}
+	
+	public static void hadamardDivision(Matrix a, Matrix b, Matrix dest) {
+		if(a.getNbRows() != b.getNbRows() || a.getNbColumns() != b.getNbColumns() || a.getNbRows() != dest.getNbRows() || a.getNbColumns() != dest.getNbColumns())
+			throw new RuntimeException("Matrix size mismatch");
+		
+		for(int i = 0; i < a.getNbRows(); i++) {
+			for(int j = 0; j < a.getNbColumns(); j++) {
+				dest.setEntry(i, j, a.getEntry(i, j) / b.getEntry(i, j));
+			}
+		}
+	}
+	
 	/*** STATIC MATRIX GENERATORS ***/
 	
 	public static Matrix getIdentity(int size) {
