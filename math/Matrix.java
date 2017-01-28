@@ -281,18 +281,18 @@ public class Matrix implements Serializable {
 	
 	/*** VECTORIZATION ***/
 	
-	public Matrix vectorize(Function f) {
+	public Matrix vectorize(Function1d f) {
 		Matrix newMatrix = new Matrix(nbRows, nbColumns);
 		vectorize(this, f, newMatrix);
 		
 		return newMatrix;
 	}
 	
-	public void vectorizeSelf(Function f){
+	public void vectorizeSelf(Function1d f){
 		vectorize(this, f, this);
 	}
 	
-	public static void vectorize(Matrix m, Function f, Matrix dest) {
+	public static void vectorize(Matrix m, Function1d f, Matrix dest) {
 		if(m.getNbRows() != dest.getNbRows() || m.getNbColumns() != dest.getNbColumns())
 			throw new RuntimeException("Matrix size mismatch");
 		
