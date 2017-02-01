@@ -4,6 +4,8 @@ This repository contains code to generate multilayer perceptrons (Neural network
 It also contains a test case consisting of hand-written digit recognition on the MNIST dataset.
 Developed as a learning exercise with [Mathieu Bolduc](https://github.com/mathieubolduc).
 
+Best accuracy obtained with this code on the MNIST dataset: **97.9%**
+
 ## Features
 - Mini-batch gradient descent
 - Momentum-based gradient descent
