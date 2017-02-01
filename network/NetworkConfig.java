@@ -14,12 +14,12 @@ public class NetworkConfig {
 	public ActivationFunction activationFunction;
 	
 	public NetworkConfig() {
-		epochs = 20;
+		epochs = 30;
 		batchSize = 10;
 		learningRate = 0.05;
-		regularizationLambda = 5.0;
-		momentumMu = 0.3;
-		costFunction = CostFunction.CROSS_ENTROPY;
+		regularizationLambda = 0;
+		momentumMu = 0;
+		costFunction = CostFunction.QUADRATIC;
 		activationFunction = ActivationFunction.SIGMOID;
 	}
 
