@@ -4,7 +4,20 @@ This repository contains code to generate multilayer perceptrons (Neural network
 It also contains a test case consisting of hand-written digit recognition on the MNIST dataset.
 Developed as a learning exercise with [Mathieu Bolduc](https://github.com/mathieubolduc).
 
-Best accuracy obtained with this code on the MNIST dataset: **97.9%**
+To this date, the best accuracy obtained with this code on the MNIST dataset: **98.53%**.
+This accuracy was obtained with the following configuration options:
+```java
+NetworkConfig config = new NetworkConfig();
+config.epochs = 20;
+config.batchSize = 10;
+config.learningRate = 0.05;
+config.regularizationLambda = 5.0;
+config.momentumMu = 0.3;
+config.costFunction = CostFunction.CROSS_ENTROPY;
+config.activationFunction = ActivationFunction.SIGMOID;
+
+Network n = new Network(new int[] {784, 1000, 500, 10}, config);
+```
 
 ## Features
 - Mini-batch gradient descent
